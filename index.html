@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+    <head>
+       <meta charset = "UTF-8">
+       <meta name = "Description" content = "MyDescription">
+       <meta name = "Author" content = "Id, Phonenumber">
+       <meta name = "Keywords" content = "HTML, CSS, BOOTSTRAP, JAVASCRIPT TUTORIALS">
+       <meta name = "Viewport" content = "width=device-width, initial-scale=1.0">
+       <title>Weather</title>
+       <style>
+          .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+          }
+          .weather {
+            background: linear-gradient(135deg, #00feba, #5b548a);
+            width: 300px;
+            height: 450px;
+            border-radius: 10px;
+            padding: 90px 0px;
+          }
+          .button-style1 {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background-color: white;
+            border: none;
+            margin-right: 30px;
+            position: relative;
+            left: 20px;
+          }
+          .input-style1 {
+            width: 230px;
+            height: 40px;
+            border-radius: 20px;
+            border: none;
+            padding: 0px 15px;
+            position: relative;
+            left: 10px;
+          }
+          .image-style1 {
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+          }
+          .input-button1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+          }
+          .div1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-top: 20px;
+          }
+          .image-style2 {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+          }
+          .p-style1 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 50px;
+            font-family: Arial;
+            margin-top: 10px; 
+          }
+          .p-style2 {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 30px;
+            font-family: Arial;
+            margin-top: -30px;
+          }
+          .div2 {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            position: relative;
+            top: 20px;
+          }
+          .image-style3 {
+            width: 60px;
+            height: 60px;
+            margin-left: 10px;
+            border-radius: 50%;
+          }
+          .image-style4 {
+            width: 60px;
+            height: 60px;
+            position: relative;
+            right: 20px;
+            border-radius: 50%;
+          }
+          .p-style3 {
+            color: white;
+            font-size: 16px;
+            font-family: Arial;
+            position: relative;
+            left: 3px;
+            bottom: 5px;
+          }
+          .p-style4 {
+            color: white;
+            position: relative;
+            right: 17px;
+            bottom: 8px;
+            font-size: 16px;
+            font-family: Arial;
+          }
+          .p-style5 {
+            color: white;
+            position: relative;
+            top: 15px;
+            right: 30px;
+            font-size: 16px;
+            font-family: Arial;
+          }
+          .p-style6 {
+            color: white;
+            position: relative;
+            right: 66px;
+            top: 12px;
+            font-size: 16px;
+            font-family: Arial;
+          }
+          body {
+            background: #222;
+            overflow: hidden;
+          }
+          @media (min-width: 0px) and (max-width: 300px) {
+            .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 15px;
+            margin-left: 20px;
+            margin-right: 20px;
+            position: relative;
+            right: 17px;
+            width: 280px;
+          }
+            .weather {
+            background: linear-gradient(135deg, #00feba, #5b548a);
+            width: 300px;
+            height: 450px;
+            border-radius: 10px;
+            padding: 90px 0px;
+          }
+          }
+       </style>
+    </head>
+    <body>
+      <div class = "card">
+          <div class = "weather">
+            <div class = "input-button1">
+                <input type = "search" placeholder = "enter a city name" class = "input-style1 js-input1">
+                <button class = "button-style1 js-button1"><img src = "https://cdn.onlinewebfonts.com/svg/img_197388.png" class = "image-style1"></button>
+            </div>
+            <div class = "div1">
+                <img src = "https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png" class = "image-style2 js-image1">
+            </div>
+            <p class = "p-style1 js-temp">22℃</p>
+            <p class = "p-style2 js-city">New York</p>
+            <div class = "div2">
+                <img src = "https://tse1.mm.bing.net/th?id=OIP.B-xTyi-wr9MlzVDLbAzSNQHaHa&pid=Api&P=0&h=180" class = "image-style3">
+                <p class = "p-style3 js-humidity">64%</p>
+                <p class = "p-style5">Humidity</p>
+                <img src = "https://tse1.mm.bing.net/th?id=OIP.LQbx37r_kM06tKl0Da1vGwAAAA&pid=Api&rs=1&c=1&qlt=95&w=115&h=115" class = "image-style4">
+                <p class = "p-style4 js-windspeed">18km/h</p>
+                <p class = "p-style6 js-ws">WindSpeed</p>
+              </div>
+          </div>
+    </div>
+    <script>
+      const apiKey = '863242cfb2b1d357e6093d9a4df19a4b';
+      const apiUrl = 'https://api.openweathermap.org/data/2.5/weather?units=metric&q=';
+      const searchBox= document.querySelector('.js-input1');
+      async function checkWeather(city) {
+        const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+        var data = await response.json();
+        console.log(data);
+        document.querySelector('.js-city').innerHTML = data.name;
+        document.querySelector('.js-temp').innerHTML = Math.round(data.main.temp) + '℃';
+        document.querySelector('.js-humidity').innerHTML = data.main.humidity + '%';
+        document.querySelector('.js-windspeed').innerHTML = data.wind.speed + 'km/h';
+        let ws = document.querySelector('.js-ws');
+        ws.style = 'position: relative; left: -80px;';
+        let image1 = document.querySelector('.js-image1');
+        if (data.weather[0].main == 'Clouds') {
+           image1.src = 'https://cdn3.iconfinder.com/data/icons/weather-ios-11-1/50/Partly_Cloudy_Cloudy_Sun_Cloud_Nebulosity_Apple_Weather-1024.png';
+        }
+        else if (data.weather[0].main == 'Clear') {
+           image1.src = 'https://tse4.mm.bing.net/th?id=OIP.zHk-Xf2axi6euiRj6_gjNwHaHv&pid=Api&P=0&h=180';
+        }
+        else if (data.weather[0].main == 'Rain') {
+           image1.src = 'https://cdn3.iconfinder.com/data/icons/circle-weather/512/weather_24-512.png';
+        }
+        else if (data.weather[0].main == 'Drizzle') {
+           image1.src = 'https://tse2.mm.bing.net/th?id=OIP.7hvPblm1bgt9ckLELt3tGQAAAA&pid=Api&P=0&h=180';
+        }
+        else if (data.weather[0].main == 'Mist') {
+           image1.src = 'https://cdn2.iconfinder.com/data/icons/yahoo-weather/512/_mist-28-512.png';
+        }
+      }
+      document.querySelector('.js-button1').addEventListener('click', () => {
+        checkWeather(searchBox.value);
+      })
+    </script>
+    </body>
+</html>
